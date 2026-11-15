@@ -23,7 +23,7 @@ def webhook():
 
     print("TradingView alert received", flush=True)
 
-    api_key = os.environ.get("OPENAI_API_KEY")
+    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
     if not api_key:
         return jsonify({"status": "received", "ai": "not configured"}), 200
 
