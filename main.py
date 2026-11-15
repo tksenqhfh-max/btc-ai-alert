@@ -41,6 +41,9 @@ def webhook():
         return jsonify({"status": "received", "analysis": result.output_text}), 200
     except Exception as e:
         print("AI error:", str(e), flush=True)
+        import traceback
+        traceback.print_exc()
+        
         return jsonify({"status": "received", "ai": "error"}), 200
 
 if __name__ == "__main__":
